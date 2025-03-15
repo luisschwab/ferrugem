@@ -1,85 +1,85 @@
-rouille::rouille! {
-    externe cagette rouille;
+ferrugem::ferrugem! {
+    externo caixote ferrugem;
 
-    utilisons std::collections::Dictionnaire comme Dico;
+    use std::collections::Dicionário;
 
-    convention CléValeur {
-        fonction écrire(&soi, clé: Chaîne, valeur: Chaîne);
-        fonction lire(&soi, clé: Chaîne) -> Résultat<PeutÊtre<&Chaîne>, Chaîne>;
+    convenção ChaveValor {
+        função escrever(&eu, chave: Corda, valor: Corda);
+        função ler(&eu, chave: Corda) -> Resultado<Opção<&Corda>, Corda>;
     }
 
-    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Chaîne, Chaîne>> = Rien;
+    estático mutável DICIONÁRIO: Opção<Dicionário<Corda, Corda>> = Nenhum;
 
-    structure Concrète;
+    estrutura Concreta;
 
-    réalisation CléValeur pour Concrète {
-        fonction écrire(&soi, clé: Chaîne, valeur: Chaîne) {
-            soit dico = dangereux {
-                DICTIONNAIRE.prendre_ou_insérer_avec(Défaut::défaut)
+    realização ChaveValor para Concreta {
+        função escrever(&eu, chave: Corda, valor: Corda) {
+            deixa dicionário = perigoso {
+                DICIONÁRIO.pega_ou_insere_com(Padrão::padrão)
             };
-            dico.insérer(clé, valeur);
+            dicionário.inserir(chave, valor);
         }
-        fonction lire(&soi, clé: Chaîne) -> Résultat<PeutÊtre<&Chaîne>, Chaîne> {
-            si soit Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
-                Bien(dico.lire(&clé))
-            } sinon {
-                Arf("fetchez le dico".vers())
+        função ler(&eu, chave: Corda) -> Resultado<Opção<&Corda>, Corda> {
+            se deixa Algum(dicionário) = perigoso{ DICIONÁRIO.como_ref() } {
+                Beleza(dicionário.pega(&chave))
+            } ou_então {
+                Errou("busca o dicionário!".transforma())
             }
         }
     }
 
-    public(cagette) fonction peut_etre(i: u32) -> PeutÊtre<Résultat<u32, Chaîne>> {
-        si i % 2 == 1 {
-            si i == 42 {
-                Quelque(Arf(Chaîne::depuis("merde")))
-            } sinon {
-                Quelque(Bien(33))
+    público(caixote) função talvez(i: u32) -> Opção<Resultado<u32, Corda>> {
+        se i % 2 == 1 {
+            se i == 42 {
+                Algum(Errou(Corda::de("merda")))
+            } ou_então {
+                Algum(Beleza(33))
             }
-        } sinon {
-            Rien
+        } ou_então {
+            Nenhum
         }
     }
 
-    asynchrone fonction exemple() {
+    assíncrono função exemplo() {
     }
 
-    asynchrone fonction exemple2() {
-        exemple().attend;
+    assíncrono função exemplo2() {
+        exemplo().peraí;
     }
 
-    fonction principale() {
-        soit mutable x = 31;
+    função principal() {
+        deixa mutável x = 31;
 
-        selon x {
+        combina x {
             42 => {
-                affiche!("omelette du fromage")
+                imprimeln!("mortandela")
             }
-            _ => affiche!("voila")
+            _ => imprimeln!("pronto")
         }
 
-        pour i de 0..10 {
-            soit val = boucle {
-                arrête i;
+        para i entre 0..10 {
+            deixa val = volta {
+                quebra i;
             };
 
-            tant que x < val {
+            enquanto x < val {
                 x += 1;
             }
 
-            x = si soit Quelque(resultat) = peut_etre(i) {
-                resultat.déballer()
-            } sinon {
+            x = se deixa Algum(resultado) = Algum(i) {
+                resultado
+            } ou_então {
                 12
             };
         }
 
-        //secondaire();
+        //secundária();
     }
 
-    #[légal(code_inaccessible)]
-    fonction secondaire() {
-        merde!("oh non"); // for the true French experience
-        calisse!("tabernacle"); // for friends speaking fr-ca
-        oups!("fetchez la vache"); // in SFW contexts
+    #[permite(código_inacessível)]
+    função secundária() {
+        fudeu!("fudeu!");
+        deu_merda!("deu merda!");
+        eita!("eita!"); // in SFW contexts
     }
 }

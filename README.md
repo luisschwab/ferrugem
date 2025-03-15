@@ -1,58 +1,59 @@
-# rouille
+# ferrugem
 
-![](https://github.com/bnjbvr/rouille/raw/principale/logo.jpeg)
+![](./logo.png)
 
-Aren't you _le tired_ from writing Rust programs in English? Do you like saying
-"merde" a lot? Would you like to try something different, in an exotic and
-funny-sounding language? Would you want to bring some French touch to your
+Aren't you _cansado_ from writing Rust programs in English? Do you like saying
+"merda" a lot? Would you like to try something different, in an exotic and
+funny-sounding language? Would you want to bring some Potuguese touch to your
 programs?
 
-**rouille** (French for _Rust_) is here to save your day, as it allows you to
-write Rust programs in French, using French keywords, French function names,
-French idioms.
+**ferrugem** (Portuguese for _Rust_) is here to save your day, as it allows you to
+write Rust programs in Portuguese, using Portiguese keywords, Portuguese function names,
+Portuguese idioms.
 
 This has been designed to be used as the official programming language to
-develop the future French sovereign operating system. 
+develop the future Brazilian sovereign operating system. 
 
-If you're from the French or any other governement with French as an official 
-language: I will be awaiting your donations on
-[liberapay](https://liberapay.com/bnjbvr/).
+If you're from the Brazilian or any other governement with Portuguese as an official 
+language: I will be awaiting your lightning donations on **zap@luisschwab.net**.
 
-You're from Quebec (or elsewhere) and don't feel at ease using only French words? 
+You're from Angola (or elsewhere) and don't feel at ease using only Portuguese words? 
 
 Don't worry!
-French Rust is fully compatible with English-Rust, so you can mix both at your
+Portuguese Rust is fully compatible with English-Rust, so you can mix both at your
 convenience.
 
-Here's an example of what can be achieved with Rouille:
+Here's an example of what can be achieved with Ferrugem:
 
-### trait and impl (aka convention et réalisation)
+### trait and impl (aka convenção e realização)
 
 ```rust
-rouille::rouille! {
-    utilisons std::collections::Dictionnaire comme Dico;
+ferrugem::ferrugem! {
+    externo caixote ferrugem;
 
-    convention CléValeur {
-        fonction écrire(&soi, clé: Chaîne, valeur: Chaîne);
-        fonction lire(&soi, clé: Chaîne) -> PeutÊtre<&Chaîne>;
+    use std::collections::Dicionário;
+
+    convenção ChaveValor {
+        função escrever(&eu, chave: Corda, valor: Corda);
+        função ler(&eu, chave: Corda) -> Resultado<Opção<&Corda>, Corda>;
     }
 
-    statique mutable DICTIONNAIRE: PeutÊtre<Dico<Chaîne, Chaîne>> = Rien;
+    estático mutável DICIONÁRIO: Opção<Dicionário<Corda, Corda>> = Nenhum;
 
-    structure Concrète;
+    estrutura Concreta;
 
-    réalisation CléValeur pour Concrète {
-        fonction écrire(&soi, clé: Chaîne, valeur: Chaîne) {
-            soit dico = dangereux {
-                DICTIONNAIRE.prendre_ou_insérer_avec(Défaut::défaut)
+    realização ChaveValor para Concreta {
+        função escrever(&eu, chave: Corda, valor: Corda) {
+            deixa dicionário = perigoso {
+                DICIONÁRIO.pega_ou_insere_com(Padrão::padrão)
             };
-            dico.insérer(clé, valeur);
+            dicionário.inserir(chave, valor);
         }
-        fonction lire(&soi, clé: Chaîne) -> Résultat<PeutÊtre<&Chaîne>, Chaîne> {
-            si soit Quelque(dico) = dangereux { DICTIONNAIRE.en_réf() } {
-                Bien(dico.lire(&clé))
-            } sinon {
-                Arf("fetchez le dico".vers())
+        função ler(&eu, chave: Corda) -> Resultado<Opção<&Corda>, Corda> {
+            se deixa Algum(dicionário) = perigoso{ DICIONÁRIO.como_ref() } {
+                Beleza(dicionário.pega(&chave))
+            } ou_então {
+                Errou("busca o dicionário!".transforma())
             }
         }
     }
@@ -62,11 +63,11 @@ rouille::rouille! {
 ### Support for regional languages
 
 ```rust
-#[légal(code_inaccessible)]
-fonction secondaire() {
-    merde!("oh non"); // for the true French experience
-    calisse!("tabarnak"); // for friends speaking fr-ca
-    oups!("fetchez la vache"); // in SFW contexts
+#[permite(código_inacessível)]
+função secundária() {
+    fudeu!("fudeu!");
+    deu_merda!("deu merda!");
+    eita!("eita!"); // in SFW contexts
 }
 ```
 
@@ -77,12 +78,10 @@ syntax. Voilà, that's it.
 
 ## les contributions
 
-First of all, _merci beaucoup_ for considering participating to this joke, the
-French government will thank you later! Feel free to throw in a few identifiers
-here and there, and open a pull-request against the `principale` (French for
-`main`) branch.
-
-Please don't introduce swear words, though: we will not excuse your French.
+First of all, _muito obrigado_ for considering participating to this joke, the
+Brazilian government will thank you later! Feel free to throw in a few identifiers
+here and there, and open a pull-request against the `mestre` (Portuguese for
+`master`) branch.
 
 ## but why would you do zat
 
@@ -132,13 +131,3 @@ Please don't introduce swear words, though: we will not excuse your French.
 - Latin: [ferrugo](https://github.com/pianoman911/ferrugo)
 - Norwegian: [korrosjon](https://github.com/datagutt/korrosjon)
 - All of the above: [unirust](https://github.com/charyan/unirust)
-
-## un grand merci
-
-- [@VentGrey](https://twitter.com/VentGrey) for making a logo!
-
-## la license
-
-[License Publique Rien à Branler](http://sam.zoy.org/lprab/),
-_le_ official translation of the [WTFPL](http://www.wtfpl.net/)
-by the same author.

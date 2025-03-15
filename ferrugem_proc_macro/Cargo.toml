@@ -1,0 +1,10 @@
+[package]
+name = "ferrugem"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+ferrugem_compilacao = { path = "../ferrugem_compilacao_proc_macro" }
+
+[lib]
+proc-macro = true
